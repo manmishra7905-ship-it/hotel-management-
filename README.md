@@ -1,17 +1,16 @@
-# Hotel Management System
+# React + Vite
 
-A premium, state-of-the-art Hotel Management System built with React and Vanilla CSS, featuring high-fidelity dashboard analytics, room booking management, guest registry, staff scheduling, billing services, and dynamic reporting.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
-- **Interactive Dashboard**: Modern statistics with charts, quick action cards, and real-time room occupancy visualizations.
-- **Room Management**: Detailed room grids categorized by type (Deluxe, Suite, Standard, Executive) with live status indicators (Available, Occupied, Under Maintenance).
-- **Booking Engine**: Sophisticated booking calendar and step-by-step guest check-in/check-out workflow with automatic bill calculation.
-- **Guest Database**: Centralized registry for quick check-ins, history tracking, and contact details.
-- **Billing & Invoice Generator**: Dynamic service billing (dining, spa, laundry) and professional print-ready invoice generation with tax/discount calculation.
-- **Staff Portal**: Management panel for tracking hotel staff shifts, roles, and cleaning schedules.
+Currently, two official plugins are available:
 
-## Tech Stack
-- **Frontend**: React (Vite)
-- **Styling**: Vanilla CSS (Modern CSS variables, HSL color palettes, Glassmorphism, animations)
-- **Icons**: Lucide React
-- **Hosting**: Local / Vercel ready
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
