@@ -6,6 +6,7 @@ import BookingManager from "./components/BookingManager";
 import ServiceLogger from "./components/ServiceLogger";
 import StaffPortal from "./components/StaffPortal";
 import InvoiceView from "./components/InvoiceView";
+import { Menu } from "lucide-react";
 
 import { 
   INITIAL_ROOMS, 
@@ -37,6 +38,7 @@ export default function App() {
   const [preselectedBooking, setPreselectedBooking] = useState(null);
   const [showCheckInForm, setShowCheckInForm] = useState(false);
   const [checkoutBooking, setCheckoutBooking] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Sync to LocalStorage on modifications
   useEffect(() => {
@@ -123,8 +125,29 @@ export default function App() {
 
   return (
     <div className="app-container">
+      {/* Mobile Header Bar */}
+      <div className="mobile-header">
+        <button 
+          onClick={() => setIsSidebarOpen(true)}
+          style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", display: "flex", alignItems: "center" }}
+        >
+          <Menu size={24} />
+        </button>
+        <span className="logo-text" style={{ fontSize: "18px", fontWeight: 700 }}>Grand Stay</span>
+      </div>
+
+      {/* Mobile Backdrop Overlay */}
+      {isSidebarOpen && (
+        <div className="sidebar-backdrop" onClick={() => setIsSidebarOpen(false)} />
+      )}
+
       {/* Premium Navigation Sidebar */}
-      <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Navigation 
+        activeTab={activeTab} 
+        setActiveTab={setActiveTab} 
+        isOpen={isSidebarOpen} 
+        onClose={() => setIsSidebarOpen(false)} 
+      />
 
       {/* Main View Area */}
       <main className="main-content">

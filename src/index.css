@@ -1191,3 +1191,161 @@ body {
   background-color: var(--success-bg);
   color: var(--success);
 }
+
+/* ==========================================================
+   MOBILE & RESPONSIVE LAYOUT STYLES
+   ========================================================== */
+
+/* Mobile Top Navbar Header (Hidden on Desktop) */
+.mobile-header {
+  display: none;
+}
+
+/* Sidebar Backdrop (Hidden on Desktop) */
+.sidebar-backdrop {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Mobile Layout Adaptations */
+  .app-container {
+    flex-direction: column;
+  }
+
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 20px;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    z-index: 99;
+  }
+
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 999;
+  }
+
+  /* Make Sidebar a sliding drawer overlay */
+  .sidebar {
+    position: fixed !important;
+    left: -260px;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    z-index: 1000;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  /* Show mobile close icon */
+  .sidebar-close-btn {
+    display: flex !important;
+  }
+
+  /* Adjust main container spacing */
+  .main-content {
+    padding: 20px;
+    margin-top: 60px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    gap: 20px;
+  }
+
+  /* Adjust page headers */
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .header-actions span {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Custom grid scales for dashboard statistics and cards */
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 16px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  /* Form & Wizard styling scales */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* Filters styling */
+  .room-filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .filter-group {
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    flex-grow: 1;
+    text-align: center;
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  /* Modals scales */
+  .modal-content {
+    padding: 16px;
+    margin-top: 20px;
+  }
+
+  /* Services panel */
+  .service-logs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Invoices prints adjustments */
+  .invoice-sheet {
+    padding: 20px;
+  }
+
+  .invoice-billing-details {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .invoice-total-row {
+    width: 100%;
+  }
+}
+

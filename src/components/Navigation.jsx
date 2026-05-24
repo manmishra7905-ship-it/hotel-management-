@@ -5,10 +5,10 @@ import {
   CalendarCheck, 
   Coffee, 
   Users, 
-  Receipt 
+  X
 } from "lucide-react";
 
-export default function Navigation({ activeTab, setActiveTab }) {
+export default function Navigation({ activeTab, setActiveTab, isOpen, onClose }) {
   const navItems = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
     { id: "rooms", label: "Rooms Grid", icon: BedDouble },
@@ -18,10 +18,19 @@ export default function Navigation({ activeTab, setActiveTab }) {
   ];
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? "open" : ""}`}>
       <div className="sidebar-logo">
         <div className="logo-icon">H</div>
         <span className="logo-text">Grand Stay</span>
+        
+        {/* Mobile Close Button */}
+        <button 
+          className="sidebar-close-btn"
+          onClick={onClose}
+          style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', marginLeft: 'auto', display: 'none' }}
+        >
+          <X size={20} />
+        </button>
       </div>
       
       <nav className="sidebar-nav">
@@ -30,7 +39,10 @@ export default function Navigation({ activeTab, setActiveTab }) {
           return (
             <button
               key={item.id}
-              onClick={() => setActiveTab(item.id)}
+              onClick={() => {
+                setActiveTab(item.id);
+                if (onClose) onClose(); // Auto close on click in mobile
+              }}
               className={`nav-item ${activeTab === item.id ? "active" : ""}`}
               style={{ background: 'none', border: 'none', width: '100%', textAlign: 'left' }}
             >
